@@ -17,6 +17,7 @@ struct TickFixture : IO2GMarketDataSnapshotResponseReader {
     DATE date;
     double bid;
     double ask;
+    int vol;
 
     friend std::ostream& operator<<(std::ostream& os, const tick & t) {
       return os << std::setprecision( std::numeric_limits<long double>::digits10-3 ) << "tick { date: " << t.date <<
@@ -39,14 +40,14 @@ struct TickFixture : IO2GMarketDataSnapshotResponseReader {
   };
 
   std::array<tick,8> mData = {{
-                               { 42117.0000208912, 0.774620, 0.774650 }
-                               ,{ 42117.0000216319, 0.774602, 0.774611 }
-                               ,{ 42117.0000217319, 0.774601, 0.774699 }
-                               ,{ 42117.0000218319, 0.774619, 0.774669 }
-                               ,{ 42117.0000219319, 0.774620, 0.774670 }
-                               ,{ 42117.0000219329, 0.774620, 0.774660 }
-                               ,{ 42117.0000230208, 0.774630, 0.774660 }
-                               ,{ 42117.0000288194, 0.774640, 0.774660 }
+                               { 42117.0000208912, 0.774620, 0.774650, 0 }
+                               ,{ 42117.0000216319, 0.774602, 0.774611, 0 }
+                               ,{ 42117.0000217319, 0.774601, 0.774699, 0 }
+                               ,{ 42117.0000218319, 0.774619, 0.774669, 0 }
+                               ,{ 42117.0000219319, 0.774620, 0.774670, 0 }
+                               ,{ 42117.0000219329, 0.774620, 0.774660, 0 }
+                               ,{ 42117.0000230208, 0.774630, 0.774660, 0 }
+                               ,{ 42117.0000288194, 0.774640, 0.774660, 0 }
 
   }};
 
@@ -118,7 +119,7 @@ struct TickFixture : IO2GMarketDataSnapshotResponseReader {
     throw "getAskClose() - NOT IMPLEMENTED";
   }
   int getVolume(int index) {
-    throw "getVolume() - NOT IMPLEMENTED";
+    return mData.at(index).vol;
   }
   int getLastBarVolume() {
     throw "getLastBarVolume() - NOT IMPLEMENTED";

@@ -7,6 +7,7 @@
 #include <folly/FileUtil.h>
 #include "fxcm/DataSnapshot.h"
 #include "ForexConnect.h"
+#include "fxcm/DateTime.h"
 
 using namespace std;
 using namespace folly;
@@ -35,7 +36,7 @@ class CSV {
       auto i =  data->size();
       while( (i--) > 0 ) {
         ss << to_simple_string( DateTime::oleTimeToPtime( data->getDate(i) ) )
-            << "," << data->getBid(i) << "," << data->getAsk(i) << data->getVolume(i) << "\n";
+            << "," << data->getBid(i) << "," << data->getAsk(i) << "," << data->getVolume(i) << "\n";
       }
       auto s = ss.tellp();
       ss.seekg(ios_base::beg);
