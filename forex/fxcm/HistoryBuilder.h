@@ -28,7 +28,7 @@ DEFINE_string(password, "", "fxcm password" );
 DEFINE_string(url, "http://www.fxcorporate.com/Hosts.jsp", "fxcm host url" );
 DEFINE_string(account, "DEMO", "fxcm account type e.g. DEMO or REAL" );
 DEFINE_string(symbol, "", "ticker symbol e.g. AUD/USD" );
-DEFINE_string(timeframe, "day", "t1|m1|m5|m15|m30|H1|H2|H3|H4|H6|H8|D1|W1|M1" );
+DEFINE_string(timeframe, "D1", "t1|m1|m5|m15|m30|H1|H2|H3|H4|H6|H8|D1|W1|M1" );
 DEFINE_string(from, "", "year/month/date" );
 DEFINE_string(to, "", "year/month/date" );
 DEFINE_string(csv, "", "filename for csv output" );
